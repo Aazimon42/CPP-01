@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edi-maio <edi-maio@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/01 21:06:24 by edi-maio          #+#    #+#             */
-/*   Updated: 2026/04/02 18:41:27 by edi-maio         ###   ########.fr       */
+/*   Created: 2026/04/02 18:16:06 by edi-maio          #+#    #+#             */
+/*   Updated: 2026/04/02 18:30:19 by edi-maio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Zombie.hpp"
+#include "../includes/Weapon.hpp"
 
-int	main(void)
+Weapon::Weapon(std::string type)
 {
-	Zombie	*horde;
-	int		i = 0;
+	this->type = type;
+}
 
-	horde = zombieHorde(10, "Zomboss");
-	while (i < 10)
-		horde[i++].announce();
-	delete[] horde;
+const std::string	&Weapon::getType(void)
+{
+	return (this->type);
+}
+
+void	Weapon::setType(std::string newType)
+{
+	this->type = newType;
 }

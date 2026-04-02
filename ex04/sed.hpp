@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   sed.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edi-maio <edi-maio@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/01 21:06:24 by edi-maio          #+#    #+#             */
-/*   Updated: 2026/04/02 18:41:27 by edi-maio         ###   ########.fr       */
+/*   Created: 2026/04/02 19:54:40 by edi-maio          #+#    #+#             */
+/*   Updated: 2026/04/02 20:18:09 by edi-maio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Zombie.hpp"
+#ifndef SED_HPP
+# define SED_HPP
 
-int	main(void)
-{
-	Zombie	*horde;
-	int		i = 0;
+# include <string>
+# include <iostream>
+#include <fstream>
+#include <sstream>
 
-	horde = zombieHorde(10, "Zomboss");
-	while (i < 10)
-		horde[i++].announce();
-	delete[] horde;
-}
+#endif
