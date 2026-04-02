@@ -6,36 +6,32 @@
 #    By: edi-maio <edi-maio@42angouleme.fr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/17 17:10:17 by edi-maio          #+#    #+#              #
-#    Updated: 2026/04/01 21:58:30 by edi-maio         ###   ########.fr        #
+#    Updated: 2026/04/01 22:11:42 by edi-maio         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CPP=c++
-CPPFLAGS = -Wall -Werror -Wextra -g -std=c++98
-NAME = horde
-SRC_DIR = srcs/
-SRCS = $(SRC_DIR)main.cpp \
-	   $(SRC_DIR)Zombie.cpp \
-	   $(SRC_DIR)zombieHorde.cpp
+NAME = thisisbrain
 
-OBJ_DIR = objs/
-OBJS = $(SRCS:$(SRC_DIR)%.cpp=$(OBJ_DIR)%.o)
+CFLAGS = -Wall -Wextra -Werror
+
+SRCS = main.cpp
+
+OBJS = $(SRCS:.cpp=.o)
+
+.o: .c
+	c++ $(CFLAGS) -c $< -o $@
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CPP) $(CPPFLAGS) $(OBJS) -o $(NAME)
+	c++ $(CFLAGS) $(OBJS) -o $(NAME)
 
-$(OBJ_DIR)%.o: $(SRC_DIR)%.cpp
-	@mkdir -p $(dir $@)
-	$(CPP) $(CPPFLAGS) $< -c -o $@
+clean:
+	rm -f $(OBJS)
 
 fclean: clean
 	rm -f $(NAME)
 
-clean:
-	rm -rf $(OBJ_DIR)
-
 re: fclean all
 
-.PHONY: all fclean clean re
+.PHONY: all clean fclean re
