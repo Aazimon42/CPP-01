@@ -46,9 +46,19 @@ int	main(int ac, char **av)
 	}
 	filename = av[1];
 	infile = std::ifstream(av[1]);
+	if (!infile.is_open())
+	{
+		std::cout << "Permission denied: " + filename << std::endl;
+		return (1);
+	}
 	buf << infile.rdbuf();
 	content = buf.str();
-	newContent = fakeSed(content, av[2], av[3]);
 	outfile = std::ofstream((filename + ".replace").c_str());
+	if (!outfile.is_open())
+	{
+		std::cout << "Permission denied: " + filename << std::endl;
+		return (1);
+	}
+	newContent = fakeSed(content, av[2], av[3]);
 	outfile << newContent;
 }
