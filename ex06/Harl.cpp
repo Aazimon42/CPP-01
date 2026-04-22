@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edi-maio <edi-maio@42angouleme.fr>         +#+  +:+       +#+        */
+/*   By: edi-maio <edi-maio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 13:36:50 by edi-maio          #+#    #+#             */
-/*   Updated: 2026/04/03 13:36:50 by edi-maio         ###   ########.fr       */
+/*   Updated: 2026/04/22 19:27:22 by edi-maio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,14 @@
 Harl::Harl (std::string level)
 {
 	std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	int	i = 0;
 
-	while (i < 4)
+	for (int i = 0; i < 4; i++)
 	{
 		if (level == levels[i])
 		{
 			this->level = i;
 			return ;
 		}
-		i++;
 	}
     std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 	this->level = -1;
@@ -35,12 +33,9 @@ void Harl::complain(std::string level)
     std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
     int i = 0;
 
-    while (i < 4)
-	{
+    for (i = 0; i < 4; i++)
 		if (level == levels[i])
             break ;
-		i++;
-	}
     switch (i)
     {
         case 0:

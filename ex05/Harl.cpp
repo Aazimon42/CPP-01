@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edi-maio <edi-maio@42angouleme.fr>         +#+  +:+       +#+        */
+/*   By: edi-maio <edi-maio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 13:36:50 by edi-maio          #+#    #+#             */
-/*   Updated: 2026/04/03 13:36:50 by edi-maio         ###   ########.fr       */
+/*   Updated: 2026/04/22 19:10:43 by edi-maio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,14 @@ void Harl::complain(std::string level)
 {
     void	(Harl::*ptrfunc[4])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
     std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-    int i = 0;
 
-    while (i < 4)
+    for (int i = 0; i < 4; i++)
     {
         if (level == levels[i])
         {
             (this->*ptrfunc[i])();
             return ;
         }
-        i++;
     }
 }
 

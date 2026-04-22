@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edi-maio <edi-maio@42angouleme.fr>         +#+  +:+       +#+        */
+/*   By: edi-maio <edi-maio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/01 21:06:24 by edi-maio          #+#    #+#             */
-/*   Updated: 2026/04/02 18:41:27 by edi-maio         ###   ########.fr       */
+/*   Updated: 2026/04/22 19:12:24 by edi-maio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,9 @@
 int	main(void)
 {
 	Zombie	*horde;
-	int		i = 0;
 
 	horde = zombieHorde(10, "Zomboss");
-	while (i < 10)
-		horde[i++].announce();
+	for (int i = 0; i < 10; i++)
+		horde[i].announce();
 	delete[] horde;
 }

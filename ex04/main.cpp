@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edi-maio <edi-maio@42angouleme.fr>         +#+  +:+       +#+        */
+/*   By: edi-maio <edi-maio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 19:54:03 by edi-maio          #+#    #+#             */
-/*   Updated: 2026/04/02 21:09:18 by edi-maio         ###   ########.fr       */
+/*   Updated: 2026/04/22 19:19:35 by edi-maio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ std::string	fakeSed(std::string content, std::string s1, std::string s2)
 	std::string	newContent;
 
 	pos = content.find(s1, i);
-	while (pos != std::string::npos)
+	while (pos != -1)
 	{
 		newContent += content.substr(i, pos - i);
 		newContent += s2;
@@ -45,7 +45,7 @@ int	main(int ac, char **av)
 		return (1);
 	}
 	filename = av[1];
-	infile = std::ifstream(av[1]);
+	infile.open(av[1]);
 	if (!infile.is_open())
 	{
 		std::cout << "Permission denied: " + filename << std::endl;
@@ -53,7 +53,7 @@ int	main(int ac, char **av)
 	}
 	buf << infile.rdbuf();
 	content = buf.str();
-	outfile = std::ofstream((filename + ".replace").c_str());
+	outfile.open((filename + ".replace").c_str());
 	if (!outfile.is_open())
 	{
 		std::cout << "Permission denied: " + filename << std::endl;
