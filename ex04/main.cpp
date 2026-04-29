@@ -6,7 +6,7 @@
 /*   By: edi-maio <edi-maio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 19:54:03 by edi-maio          #+#    #+#             */
-/*   Updated: 2026/04/22 19:19:35 by edi-maio         ###   ########.fr       */
+/*   Updated: 2026/04/29 15:13:20 by edi-maio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ std::string	fakeSed(std::string content, std::string s1, std::string s2)
 	int	pos = 0;
 	std::string	newContent;
 
+	if (s1.empty())
+		return (content);
 	pos = content.find(s1, i);
 	while (pos != -1)
 	{
